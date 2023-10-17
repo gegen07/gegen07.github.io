@@ -3,6 +3,24 @@
 
 <script defer src="//yihui.org/js/center-img.js"></script>
 
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4ZJW0EGHSC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4ZJW0EGHSC');
+</script>
+
 {{ template "_internal/google_analytics.html" . }}
 
 {{ if eq .Section "post" }}

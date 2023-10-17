@@ -121,7 +121,7 @@ Seja $t$ um texto e $p$ a palavra que você está procurando no texto $t$. O pro
 
 Para resolver criamos uma nova string $s=p+\#+t$, ou seja, concatenamos $p$ com $t$, adicionando qualquer caractere especial entre eles.
 
-Calcula a função Z para a string $s$. Assim, para qualquer $i$ dentro do intervalo de $[0, length(t)-1], consideraremos o valor $k=z[i+length(p)+1]$. Se $k$ é igual ao tamanho de $p$, então sabemos que existe uma ocorrência de $p$ na iésima posição de $t$.
+Calcula a função Z para a string $s$. Assim, para qualquer $i$ dentro do intervalo de $[0, length(t)-1]$, consideraremos o valor $k=z[i+length(p)+1]$. Se $k$ é igual ao tamanho de $p$, então sabemos que existe uma ocorrência de $p$ na iésima posição de $t$.
 
 O tempo de execução é $\mathcal{O}(length(p)+length(t))$
 

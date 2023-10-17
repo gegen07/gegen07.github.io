@@ -2,7 +2,7 @@ baseurl: "/"
 languageCode: "en-us"
 title: "Germano Barcelos"
 theme: "xmin"
-googleAnalytics: "UA-155981287-1"
+googleAnalytics: "G-4ZJW0EGHSC"
 disqusShortname: "gegen07"
 ignoreFiles: ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"]
 footnotereturnlinkcontents: "↩"
