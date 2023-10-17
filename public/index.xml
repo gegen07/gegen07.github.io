@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Home on A minimal Hugo website</title>
+    <title>Home on Germano Barcelos</title>
     <link>/</link>
-    <description>Recent content in Home on A minimal Hugo website</description>
+    <description>Recent content in Home on Germano Barcelos</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Z Function</title>
+      <link>/post/2023/10/16/z-function/</link>
+      <pubDate>Mon, 16 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2023/10/16/z-function/</guid>
+      <description>Definição Dada ums string $s$ de tamanho $n$. A função Z para essa string é um vetor de tamanho $n$, no qual o índice $i$ é igual ao maior número de caracteres que coincidentes começando pela posição $i$ com o primeiro caractere de $s$. O algoritmo para calcular a função Z eficientemente é $\mathcal{O}(n)$.
+Invariante: $z[i]$ é o tamanho da maior string que é, ao mesmo tempo, um prefixo de $s$ e o prefixo do sufixo de $s$ começando pela posição $i$.</description>
+    </item>
+    
     <item>
       <title>A New Facility Location Open Source Approach</title>
       <link>/post/2021/08/05/a-new-facility-location-open-source-approach/</link>
@@ -94,10 +104,9 @@ What is GSOC? GSoC is an abbreviation of Google Summer of Code and it&amp;rsquo;
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/about/</guid>
-      <description>Publications  2021 - Figueiredo L.J.A.S., dos Santos G.B., Souza R.P.P.M., Silva F.A., Braga T.R.M. MoreData: A Geospatial Data Enrichment Framework - https://doi.org/10.1145/3474717.348421 | Github  Education   Pursuing Computer Science BSc - UFV | 2019-2022
-  High School with Associate Degree in Analysis and Systems Development - COLTEC | 2016-2018
-  Projects   Undergraduate Research - (NESPED - UFV)
-Distributed and Pervasive Computing Systems Research Group integrant.</description>
+      <description>Publications   2022 Figueiredo, Leonardo JAS, et al. &amp;ldquo;SCOrE: um serviço de classificação de usuários móveis com base em seus aplicativos e suas cidades.&amp;rdquo; Anais do XIV Simpósio Brasileiro de Computação Ubíqua e Pervasiva. SBC, 2022.
+  2022 - Feng, Xin, et al. &amp;ldquo;spopt: a python package for solving spatial optimization problems in PySAL.&amp;rdquo; Journal of Open Source Software 7.74 (2022).
+  2021 - Figueiredo L.J.A.S., dos Santos G.</description>
     </item>
     
   </channel>

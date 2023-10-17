@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CP on Germano Barcelos</title>
+    <link>/categories/cp/</link>
+    <description>Recent content in CP on Germano Barcelos</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 16 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="/categories/cp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Z Function</title>
+      <link>/post/2023/10/16/z-function/</link>
+      <pubDate>Mon, 16 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2023/10/16/z-function/</guid>
+      <description>Definição Dada ums string $s$ de tamanho $n$. A função Z para essa string é um vetor de tamanho $n$, no qual o índice $i$ é igual ao maior número de caracteres que coincidentes começando pela posição $i$ com o primeiro caractere de $s$. O algoritmo para calcular a função Z eficientemente é $\mathcal{O}(n)$.
+Invariante: $z[i]$ é o tamanho da maior string que é, ao mesmo tempo, um prefixo de $s$ e o prefixo do sufixo de $s$ começando pela posição $i$.</description>
+    </item>
+    
+  </channel>
+</rss>

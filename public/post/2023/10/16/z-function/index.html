@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Z Function | Germano Barcelos</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="/css/fonts.css">
+
+    <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Z Function</span></h1>
+
+<h2 class="date">2023/10/16</h2>
+</div>
+
+<main>
+<h2 id="definição">Definição</h2>
+<p>Dada ums string $s$ de tamanho $n$. A função Z para essa string é um vetor de tamanho $n$, no qual o índice $i$ é igual ao maior número de caracteres que coincidentes começando pela posição $i$ com o primeiro caractere de $s$. O algoritmo para calcular a função Z eficientemente é $\mathcal{O}(n)$.</p>
+<p>Invariante: $z[i]$ é o tamanho da maior string que é, ao mesmo tempo, um prefixo de $s$ e o prefixo do sufixo de $s$ começando pela posição $i$.</p>
+<h3 id="exemplo-1">Exemplo 1:</h3>
+<ul>
+<li>String: &lsquo;aaaaa&rsquo;</li>
+<li>Vetor Resultante: [0, 4, 3, 2, 1]</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>a</th>
+<th>a</th>
+<th>a</th>
+<th>a</th>
+<th>a</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$i$</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>$Z$</td>
+<td>0</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h5 id="1-o-primeiro-elemento-geralmente-não-é-bem-definido-então-é-sempre-0">1. O primeiro elemento, geralmente, não é bem definido, então é sempre 0.</h5>
+<h5 id="2-calculando-o-segundo-elemento-do-vetor-resultante-z">2. Calculando o segundo elemento do vetor resultante $Z$</h5>
+<p>Depois deve-se analisar o elemento da posição $1$ com o começo, ou seja, com a posição $0$, sempre seguindo a invariante da função $Z$. Caso seja elas sejam iguais, avança-se uma posição nos dois caracteres que estão sendo comparados e contabiliza 1 no vetor resultante na posição $1$.</p>
+<p>Na segunda iteração, iremos comparar o elemento da posição $2$ com o elemento da posição $1$. Eles são iguais, então adicionamos 1 na posição 2 do vetor resultante.</p>
+<p>Faça isso, até que a posição do $elem_{i+j}$ que está sendo comparado seja menor que o tamanho da string $s$, ou até que o segundo elemento $elem_{i+j}$ não seja igual ao primeiro elemento $elem_{i}$</p>
+<h4 id="3-calculando-o-terceiro-elemento-do-vetor-resultante-z">3. Calculando o terceiro elemento do vetor resultante $Z$</h4>
+<h3 id="exemplo-2">Exemplo 2</h3>
+<ul>
+<li>String: taktaktak</li>
+<li>Vetor Resultante: [0, 0, 0, 6, 0, 0, 3, 0, 0]</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>t</th>
+<th>a</th>
+<th>k</th>
+<th>t</th>
+<th>a</th>
+<th>k</th>
+<th>t</th>
+<th>a</th>
+<th>k</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$i$</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+</tr>
+<tr>
+<td>$Z$</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="algoritmo-ineficiente">Algoritmo ineficiente</h3>
+<pre><code class="language-cpp">vector&lt;int&gt; z_function_trivial(string s) {
+    int n = s.size();
+    vector&lt;int&gt; z(n);
+    for (int i = 1; i &lt; n; i++) {
+        while (i + z[i] &lt; n &amp;&amp; s[z[i]] == s[i + z[i]]) {
+            z[i]++;
+        }
+    }
+    return z;
+}
+</code></pre>
+<p>Note que esse algoritmo segue o que definimos no passo 2. do exemplo 1. Porém a gente vai precisar fazer no máximo, em um pior caso, $\mathcal{O}(n^2)$ operações, o que não é o ideal. Conseguimos melhorar esse algoritmo.</p>
+<h3 id="computando-função-z-eficientemente">Computando Função Z eficientemente</h3>
+<p>Devemos considerar o segmentos que fazem matching, nomeados também como substrings de $s$ que que são prefixos de $s$. Por exemplo, o valor da função Z $z[i]$ é o tamanho do segmento que faz match com o prefixo de $s$, começando na posição $i$ e terminando em $i+z[i]-1$.</p>
+<p>Para isso, vamos guardar o segmento que termina mais a direita, $[l, r)$, sendo $l$ o índice do início do segmento e $r$ o índice que termina o segmento. Tudo que está à direita ainda não conhecemos.</p>
+<p>Dado que estamos na posição $i$, temos duas opções:</p>
+<ul>
+<li>
+<p>$i \geq r$ - a posição atual não está contido no segmento.</p>
+<p>Assim, devemos computar $z[i]$ utilizando o algoritmo ineficiente. Se $z[i]&gt;0$, devemos atualizar o índice do segmento mais à direita, porque é garantido que $r=i+z[i]$ é com certeza melhor que o antigo $r$.</p>
+</li>
+<li>
+<p>$i&lt;r$ - a posição atual está contida no segmento.</p>
+<p>Para isso podemos utilizar os valores que já calculamos anteriormente para calcular essa condição.</p>
+<p>Note que a substring $[l, \ldots, r)$ e a substring $[0, \ldots, r-l)$ dão match, seguindo a invariante da função Z. Isso possibilita o reuso do já calculamos para a substring $[0, \ldots, r-l)$, e isso é igual a $z[i-l]$.</p>
+<p>No entanto, $z[i-l]$ pode ser muito grande, ou seja, pode ultrapassar $r$. Isso não é permitido porque não sabemos nada além de $r$.</p>
+<p>Imagine o primeiro exemplo: &lsquo;aaaaaa&rsquo;</p>
+<p>Temos que o segmento é igual a $[1, 5)$, a posição que queremos calcular é igual a $i=4$, então temos que a posição de match é igual a $4-1=3$. $z[3] = 2 $, o que está incorreto. Assim podemos considerar: $z_0[i] = min(r-i, z[i-l])$.</p>
+<p>Depois de inicializar $z[i]$ com o $z_0[i]$ devemos calcular o resto com o algoritmo trivial porque não sabemos nada além da borda $r$.</p>
+</li>
+</ul>
+<p>O algoritmo é simples, mas é tricky, porque devemos entender a propriedade dos segmentos que dão match.</p>
+<pre><code class="language-cpp">vector&lt;int&gt; z_function(string s) {
+    int n = s.size();
+    vector&lt;int&gt; z(n);
+    int l = 0, r = 0;
+    for(int i = 1; i &lt; n; i++) {
+        if(i &lt; r) {
+            z[i] = min(r - i, z[i - l]);
+        }
+        while(i + z[i] &lt; n &amp;&amp; s[z[i]] == s[i + z[i]]) {
+            z[i]++;
+        }
+        if(i + z[i] &gt; r) {
+            l = i;
+            r = i + z[i];
+        }
+    }
+    return z;
+}
+</code></pre>
+<h3 id="aplicações">Aplicações</h3>
+<h4 id="1-pattern-matching">1. Pattern Matching</h4>
+<p>Seja $t$ um texto e $p$ a palavra que você está procurando no texto $t$. O problema é encontrar todos os padrões $p$ dentro do texto $t$.</p>
+<p>Para resolver criamos uma nova string $s=p+#+t$, ou seja, concatenamos $p$ com $t$, adicionando qualquer caractere especial entre eles.</p>
+<p>Calcula a função Z para a string $s$. Assim, para qualquer $i$ dentro do intervalo de $[0, length(t)-1], consideraremos o valor $k=z[i+length(p)+1]$. Se $k$ é igual ao tamanho de $p$, então sabemos que existe uma ocorrência de $p$ na iésima posição de $t$.</p>
+<p>O tempo de execução é $\mathcal{O}(length(p)+length(t))$</p>
+
+</main>
+
+  <footer>
+  <script defer src="//yihui.org/js/math-code.js"></script>
+<script defer src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script defer src="//yihui.org/js/center-img.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-155981287-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "gegen07" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+  <hr/>
+  <a href="https://github.com/gegen07">Github</a> | <a href="https://twitter.com/gegen_07">Twitter</a>
+  
+  </footer>
+  </body>
+</html>
+

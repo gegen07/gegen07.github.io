@@ -1,12 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on A minimal Hugo website</title>
+    <title>Tags on Germano Barcelos</title>
     <link>/tags/</link>
-    <description>Recent content in Tags on A minimal Hugo website</description>
+    <description>Recent content in Tags on Germano Barcelos</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Competitive Programming</title>
+      <link>/tags/competitive-programming/</link>
+      <pubDate>Mon, 16 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/competitive-programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Portuguese</title>
+      <link>/tags/portuguese/</link>
+      <pubDate>Mon, 16 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/portuguese/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>String</title>
+      <link>/tags/string/</link>
+      <pubDate>Mon, 16 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/string/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>GSOC</title>
       <link>/tags/gsoc/</link>

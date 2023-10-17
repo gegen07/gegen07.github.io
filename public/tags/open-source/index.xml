@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Open-Source on A minimal Hugo website</title>
+    <title>Open-Source on Germano Barcelos</title>
     <link>/tags/open-source/</link>
-    <description>Recent content in Open-Source on A minimal Hugo website</description>
+    <description>Recent content in Open-Source on Germano Barcelos</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 05 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/open-source/index.xml" rel="self" type="application/rss+xml" />
