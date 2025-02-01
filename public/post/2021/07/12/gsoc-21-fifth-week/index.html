@@ -18,9 +18,9 @@
       
       <li><a href="/">Home</a></li>
       
-      <li><a href="/about/">About</a></li>
+      <li><a href="/publications/">Publications</a></li>
       
-      <li><a href="/categories/">Categories</a></li>
+      <li><a href="/categories/">Blog</a></li>
       
       <li><a href="/tags/">Tags</a></li>
       
@@ -53,19 +53,36 @@
 
 <script defer src="//yihui.org/js/center-img.js"></script>
 
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
 
-<script type="application/javascript">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4ZJW0EGHSC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4ZJW0EGHSC');
+</script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4ZJW0EGHSC"></script>
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-155981287-1', 'auto');
-	
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-4ZJW0EGHSC', { 'anonymize_ip': false });
 }
 </script>
+
 
 
   <div id="disqus_thread"></div>

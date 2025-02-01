@@ -99,14 +99,13 @@ What is GSOC? GSoC is an abbreviation of Google Summer of Code and it&amp;rsquo;
     </item>
     
     <item>
-      <title>About</title>
-      <link>/about/</link>
+      <title>Publications</title>
+      <link>/publications/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/about/</guid>
-      <description>Publications   2022 Figueiredo, Leonardo JAS, et al. &amp;ldquo;SCOrE: um serviço de classificação de usuários móveis com base em seus aplicativos e suas cidades.&amp;rdquo; Anais do XIV Simpósio Brasileiro de Computação Ubíqua e Pervasiva. SBC, 2022.
-  2022 - Feng, Xin, et al. &amp;ldquo;spopt: a python package for solving spatial optimization problems in PySAL.&amp;rdquo; Journal of Open Source Software 7.74 (2022).
-  2021 - Figueiredo L.J.A.S., dos Santos G.</description>
+      <guid>/publications/</guid>
+      <description>Selected Publications   dos Santos, G.B., Silva, P.H.C., Silva, F.A., Silva, T.R.M.B., Aylon, L.B.R. (2025). HAVANA: Hybrid Attentional Graph Convolutional Network Semantic Venue Annotation Model. In: Paes, A., Verri, F.A.N. (eds) Intelligent Systems. BRACIS 2024. Lecture Notes in Computer Science(), vol 15414. Springer, Cham. https://doi.org/10.1007/978-3-031-79035-5_20
+  Feng, Xin, et al. &amp;ldquo;spopt: a python package for solving spatial optimization problems in PySAL.&amp;rdquo; Journal of Open Source Software 7.74 (2022).</description>
     </item>
     
   </channel>

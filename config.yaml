@@ -17,10 +17,10 @@ menu:
     - name: Home
       url: ""
       weight: 1
-    - name: About
-      url: "about/"
+    - name: Publications
+      url: "publications/"
       weight: 2
-    - name: Categories
+    - name: Blog
       url: "categories/"
       weight: 3
     - name: Tags

@@ -15,7 +15,7 @@ Semantic Enrichment, Deep Learning, Human Mobility, Spatial Optimization, Machin
 
 ### Random Topic
 
-Below there is the most beautiful formulas created by Newton but is used in Human Mobility to study shifting patterns. As the __Tobler's First Law of Geography__ states: "_everything is related to everything else, but near things are more related than distant things_".
+Below it is the most beautiful formulas created by Newton but is used in Human Mobility to study shifting patterns. As the __Tobler's First Law of Geography__ states: "_everything is related to everything else, but near things are more related than distant things_".
 `$$X_{ij}=G\frac{Y_i^{\beta_1}Y_j^{\beta_2}}{d_{ij}^{\beta_3}}$$`
 
 #### _All models are wrong, but some are useful_ - George Box
