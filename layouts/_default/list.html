@@ -1,0 +1,57 @@
+{{ partial "header.html" . }}
+
+{{ if .IsHome }}
+<main class="home-main prose">
+  {{ .Content }}
+</main>
+{{ else }}
+<section class="list-section">
+  <header class="section-header">
+    <h1 class="article-title">{{ .Title | markdownify }}</h1>
+    <p class="section-subtitle">{{ len .Pages }} {{ if eq (len .Pages) 1 }}post{{ else }}posts{{ end }}</p>
+  </header>
+
+  {{ with .Content }}
+  <div class="prose">
+    {{ . }}
+  </div>
+  {{ end }}
+
+  <div class="post-list">
+    {{ range .Pages }}
+    <article class="md-card post-card">
+      <div class="post-card-meta">
+        {{ if not .Date.IsZero }}
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+        <span class="meta-sep">·</span>
+        <span>{{ .ReadingTime }} min read</span>
+        {{ end }}
+        {{ with .Params.categories }}
+        <div class="meta-chips">
+          {{ range . }}
+          <a class="md-chip md-chip-primary" href="{{ "categories/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+      <h2 class="post-card-title">
+        <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+      </h2>
+      {{ with .Summary }}
+      <p class="post-card-summary">{{ . | plainify | truncate 180 }}</p>
+      {{ end }}
+      {{ with .Params.tags }}
+      <div class="post-card-tags">
+        {{ range . }}
+        <a class="md-chip md-chip-sm" href="{{ "tags/" | relURL }}{{ . | urlize }}/">#{{ . }}</a>
+        {{ end }}
+      </div>
+      {{ end }}
+    </article>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+{{ partial "footer.html" . }}
+

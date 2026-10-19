@@ -1,0 +1,13 @@
+{{ partial "header.html" . }}
+
+<main class="not-found">
+  <div class="md-card not-found-card">
+    <span class="not-found-code">404</span>
+    <h1>Page Not Found</h1>
+    <p>The page you are looking for doesn't exist or has been moved.</p>
+    <a class="md-btn md-btn-filled" href="{{ "/" | relURL }}">Back to Home</a>
+  </div>
+</main>
+
+{{ partial "footer.html" . }}
+

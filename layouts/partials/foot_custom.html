@@ -1,8 +1,18 @@
+<script>
+  (function() {
+    var btn = document.getElementById('theme-toggle');
+    if (btn) {
+      btn.addEventListener('click', function() {
+        var current = document.documentElement.getAttribute('data-theme');
+        var next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+    }
+  })();
+</script>
+
 <script defer src="//yihui.org/js/math-code.js"></script>
-<script defer src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-<script defer src="//yihui.org/js/center-img.js"></script>
-
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {
@@ -11,18 +21,17 @@
     }
   });
 </script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" onload="hljs.highlightAll();"></script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4ZJW0EGHSC"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-4ZJW0EGHSC');
 </script>
 
-{{ template "_internal/google_analytics.html" . }}
-
-{{ if eq .Section "post" }}
+{{ if and (eq .Section "post") .IsPage }}
   {{ template "_internal/disqus.html" . }}
 {{ end }}

@@ -1,0 +1,42 @@
+{{ partial "header.html" . }}
+
+<article class="single-article">
+  <header class="article-header">
+    <h1 class="article-title">{{ .Title | markdownify }}</h1>
+    {{ if or .Params.author (not .Date.IsZero) .Params.categories .Params.tags }}
+    <div class="article-meta">
+      {{ with .Params.author }}
+      <span class="meta-item meta-author">{{ . }}</span>
+      {{ end }}
+      {{ if not .Date.IsZero }}
+      <time class="meta-item meta-date" datetime="{{ .Date.Format "2006-01-02" }}">
+        {{ .Date.Format "Jan 2, 2006" }}
+      </time>
+      <span class="meta-sep">·</span>
+      <span class="meta-item meta-reading">{{ .ReadingTime }} min read</span>
+      {{ end }}
+      {{ with .Params.categories }}
+      <div class="meta-chips">
+        {{ range . }}
+        <a class="md-chip md-chip-primary" href="{{ "categories/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
+        {{ end }}
+      </div>
+      {{ end }}
+      {{ with .Params.tags }}
+      <div class="meta-chips">
+        {{ range . }}
+        <a class="md-chip" href="{{ "tags/" | relURL }}{{ . | urlize }}/">#{{ . }}</a>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+  </header>
+
+  <main class="prose">
+    {{ .Content }}
+  </main>
+</article>
+
+{{ partial "footer.html" . }}
+

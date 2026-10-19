@@ -1,0 +1,66 @@
+{{ partial "header.html" . }}
+
+<section class="terms-section">
+  <header class="section-header">
+    <h1 class="article-title">{{ if eq .Data.Plural "categories" }}Blog &amp; Categories{{ else }}{{ .Title }}{{ end }}</h1>
+    <p class="section-subtitle">
+      {{ if eq .Data.Plural "categories" }}
+      Filter posts by category or browse all articles below
+      {{ else }}
+      Browse posts by topic tag
+      {{ end }}
+    </p>
+  </header>
+
+  <div class="terms-grid">
+    {{ range .Data.Terms.Alphabetical }}
+    <a class="md-chip md-chip-lg" href="{{ .Page.RelPermalink }}">
+      <span class="term-name">{{ .Page.Title }}</span>
+      <span class="term-count">{{ .Count }}</span>
+    </a>
+    {{ end }}
+  </div>
+
+  {{ if eq .Data.Plural "categories" }}
+  {{ $posts := where .Site.RegularPages "Section" "post" }}
+  {{ if gt (len $posts) 0 }}
+  <h2 class="sub-heading">All Posts</h2>
+  <div class="post-list">
+    {{ range $posts }}
+    <article class="md-card post-card">
+      <div class="post-card-meta">
+        {{ if not .Date.IsZero }}
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+        <span class="meta-sep">·</span>
+        <span>{{ .ReadingTime }} min read</span>
+        {{ end }}
+        {{ with .Params.categories }}
+        <div class="meta-chips">
+          {{ range . }}
+          <a class="md-chip md-chip-primary" href="{{ "categories/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+      <h3 class="post-card-title">
+        <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+      </h3>
+      {{ with .Summary }}
+      <p class="post-card-summary">{{ . | plainify | truncate 180 }}</p>
+      {{ end }}
+      {{ with .Params.tags }}
+      <div class="post-card-tags">
+        {{ range . }}
+        <a class="md-chip md-chip-sm" href="{{ "tags/" | relURL }}{{ . | urlize }}/">#{{ . }}</a>
+        {{ end }}
+      </div>
+      {{ end }}
+    </article>
+    {{ end }}
+  </div>
+  {{ end }}
+  {{ end }}
+</section>
+
+{{ partial "footer.html" . }}
+
